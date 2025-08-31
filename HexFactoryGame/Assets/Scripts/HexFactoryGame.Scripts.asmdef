@@ -1,6 +1,6 @@
 {
     "name": "HexFactoryGame.Scripts",
-    "rootNamespace": "HexFactoryGame",
+    "rootNamespace": "HexFactory",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
