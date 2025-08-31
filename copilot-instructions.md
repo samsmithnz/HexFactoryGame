@@ -69,6 +69,11 @@ public struct CubeCoord
 - **Coordinates**: Use `coord`, `position`, or `hexPos` for hex positions
 - **Logistics**: Use `belt`, `connection`, `transport` for movement systems
 
+### Type Declaration Guidelines
+- **Explicit Types**: Always use explicit type declarations instead of `var` for better code clarity
+- **Exception**: Only use `var` when the type is immediately obvious from the right-hand side (e.g., LINQ queries with complex anonymous types)
+- **Readability**: Explicit types improve code readability and make intent clearer for contributors
+
 ### Class Structure Patterns
 ```csharp
 // Base factory interface
@@ -138,7 +143,7 @@ public class RecipeValidator
 [Test]
 public void Factory_ShouldRespectInputLimits() 
 {
-    var factory = new BasicAssembler();
+    BasicAssembler factory = new BasicAssembler();
     Assert.LessOrEqual(factory.MaxInputs, 2);
     Assert.AreEqual(factory.MaxOutputs, 1);
 }
@@ -146,7 +151,7 @@ public void Factory_ShouldRespectInputLimits()
 [Test]
 public void Recipe_ShouldValidateConstraints() 
 {
-    var invalidRecipe = new Recipe { 
+    Recipe invalidRecipe = new Recipe { 
         inputs = new List<ItemCount> { /* 3 inputs */ } 
     };
     Assert.False(RecipeValidator.IsValid(invalidRecipe));
@@ -158,8 +163,8 @@ public void Recipe_ShouldValidateConstraints()
 [Test]
 public void HexCoord_ShouldConvertToCubeCorrectly() 
 {
-    var axial = new HexCoord(1, -1);
-    var cube = axial.ToCube();
+    HexCoord axial = new HexCoord(1, -1);
+    CubeCoord cube = axial.ToCube();
     Assert.AreEqual(cube.x + cube.y + cube.z, 0);
 }
 ```
@@ -206,6 +211,7 @@ Based on project structure (.gitignore patterns):
 - Skip recipe validation
 - Create hidden or implicit item transformations
 - Use floating-point coordinates for hex positions
+- Use `var` for variable declarations when the type isn't immediately obvious
 
 ### ✅ Do This Instead
 - Always validate 2-input maximum
@@ -214,6 +220,7 @@ Based on project structure (.gitignore patterns):
 - Validate recipes at load time
 - Make all transformations explicit in UI
 - Use integer hex coordinates with proper conversion functions
+- Use explicit type declarations for better code clarity
 
 ## Code Review Guidelines
 
