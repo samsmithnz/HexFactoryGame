@@ -1,0 +1,14 @@
+{
+    "name": "HexFactoryGame.Scripts",
+    "rootNamespace": "HexFactoryGame",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
